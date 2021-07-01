@@ -34,6 +34,10 @@
         DefaultLimitNOFILE=100000
         ```
 1.  Set up iptables see bridged traffic
+    -   sudo vi /etc/modules-load.d/k8s-overlay.conf
+        ```bash
+        overlay
+        ```
     -   sudo vi /etc/modules-load.d/k8s.conf
         ```bash
         br_netfilter
