@@ -38,13 +38,13 @@
         ```bash
         overlay
 
-        sudo lsmod |grep overlay # ckeck enable/disable
+        sudo lsmod |grep overlay # check enable/disable
         ```
     -   sudo vi /etc/modules-load.d/k8s.conf
         ```bash
         br_netfilter
 
-        sudo lsmod |grep br_netfilter # ckeck enable/disable
+        sudo lsmod |grep br_netfilter # check enable/disable
         ```
     -   sudo vi /etc/sysctl.d/k8s.conf
         ```bash
