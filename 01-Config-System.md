@@ -37,16 +37,24 @@
     -   sudo vi /etc/modules-load.d/k8s-overlay.conf
         ```bash
         overlay
+
+        sudo lsmod |grep overlay # check enable/disable
         ```
     -   sudo vi /etc/modules-load.d/k8s.conf
         ```bash
         br_netfilter
+
+        sudo lsmod |grep br_netfilter # check enable/disable
         ```
     -   sudo vi /etc/sysctl.d/k8s.conf
         ```bash
         net.bridge.bridge-nf-call-iptables = 1
         net.ipv4.ip_forward = 1
         net.bridge.bridge-nf-call-ip6tables = 1
+
+
+        sudo sysctl -a |grep net.bridge # check
+        sudo sysctl -a |grep net.ipv4.ip_forward # check
         ```
 1.  Setup /etc/hosts file
     ```bash
