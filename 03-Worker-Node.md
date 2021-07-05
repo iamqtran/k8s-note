@@ -60,6 +60,20 @@
    ```bash
    sudo ufw allow from 10.0.0.10 comment "k8s-master"
    ```
+1. Add hosts k8s-master
+   ```bash
+   sudo vi /etc/hosts
+   127.0.0.1 localhost
+   10.0.0.10 k8s-master
+   10.0.0.50 worker-10-0-0-50
+   ```
+1. Add hosts worker 
+   ```bash
+   sudo vi /etc/hosts
+   127.0.0.1 localhost
+   10.0.0.10 k8s-master
+   10.0.0.50 worker-10-0-0-50
+   ```
 1. Create a token for joining worker node
    ```bash
    kubeadm token create --print-join-command
