@@ -1,0 +1,11 @@
+--2021-07-06 04:17:06--  https://www.bluematador.com/hs-fs/hubfs/blog/new/Kubernetes%20Deployments%20-%20Rolling%20Update%20Configuration/Kubernetes-Deployments-Rolling-Update-Configuration.gif?width=1600
+Resolving www.bluematador.com (www.bluematador.com)... 199.60.103.226, 199.60.103.30, 2606:2c40::c73c:67e2, ...
+Connecting to www.bluematador.com (www.bluematador.com)|199.60.103.226|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 80850 (79K) [image/gif]
+Saving to: ‘Kubernetes-Deployments-Rolling-Update-Configuration.gif?width=1600’
+
+                Kubernetes-Deplo   0%[                                                        ]       0  --.-KB/s               Kubernetes-Deployments-Rolling-U 100%[=======================================================>]  78.96K  --.-KB/s    in 0.02s   
+
+2021-07-06 04:17:07 (3.34 MB/s) - ‘Kubernetes-Deployments-Rolling-Update-Configuration.gif?width=1600’ saved [80850/80850]
+
