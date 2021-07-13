@@ -2,6 +2,8 @@
 1. What is DAEMONSET
     1. A DaemonSet ensures a copy of a Pod is running across all nodes
     1. DaemonSets are used to deploy system daemons such as log collectors and monitoring agents, which typically must run on every node
+1. <https://www.youtube.com/watch?v=1-tRiThpFrY&t=49s>
+![title](./TOGBZ9g.png)
 1. Practice Daemonset with node exporter
     ```yaml
     apiVersion: apps/v1
