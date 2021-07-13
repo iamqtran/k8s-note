@@ -11,6 +11,7 @@
         - A Client will do loadbalance to all backend pods.
     1. Usually using for database or nosql database
         1. **Pod with multiple containers should be using initContainer for setup primary/slave config file in POD**
+1. <https://v1-19.docs.kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/>
 1. Practice
     1. Create headless service
         ```yaml
