@@ -12,6 +12,7 @@
     1. Usually using for database or nosql database
         1. **Pod with multiple containers should be using initContainer for setup primary/slave config file in POD**
 1. <https://v1-19.docs.kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/>
+1. Full Elastic Search example <https://gist.github.com/timfpark/0907199f5e7d8d41c5faa01793cbc54f> 
 1. Practice
     1. Create headless service
         ```yaml
