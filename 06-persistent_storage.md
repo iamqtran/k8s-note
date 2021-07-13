@@ -119,6 +119,55 @@
                     path: /mnt/dynamic-volume
                     type: DirectoryOrCreate      
             ```
+        1. Persistent volume with hostpath
+            ```yaml
+            apiVersion: v1
+            kind: PersistentVolume
+            metadata:
+              name: pv-volume
+              labels:
+                type: local
+            spec:
+              capacity:
+                storage: 10Gi
+              accessModes:
+                - ReadWriteOnce
+              hostPath:
+                path: "/mnt/data"
+            ```
+        1. Using Persistent Volume Claim
+            ```yaml
+            apiVersion: v1
+            kind: PersistentVolumeClaim
+            metadata:
+              name: pv-claim
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 3Gi
+            ```
+        1. Pod using Persistent Volume Claim
+            ```yaml
+            apiVersion: v1
+            kind: Pod
+            metadata:
+              name: pv-pod
+            spec:
+              volumes:
+                - name: task-pv-storage
+                  persistentVolumeClaim:
+                    claimName: pv-claim
+              containers:
+                - name: task-pv-container
+                  image: nginx:1.20-alpine
+                  ports:
+                    - containerPort: 80
+                  volumeMounts:
+                    - mountPath: "/usr/share/nginx/html"
+                      name: task-pv-storage
+            ```
     1. LocalVolume
         1. Create mkdir -p /mnt/volumes/pv1
         1. Storage Class
