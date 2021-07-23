@@ -169,7 +169,7 @@
                       name: task-pv-storage
             ```
     1. LocalVolume
-        1. Create mkdir -p /mnt/volumes/pv1
+        1. Create mkdir -p /mnt/disk/ssd
         1. Storage Class
             ```yaml
             kind: StorageClass
@@ -184,7 +184,7 @@
             apiVersion: v1
             kind: PersistentVolume
             metadata:
-              name: local-pv
+              name: local-storage
             spec:
               capacity:
                 storage: 10Gi
@@ -193,7 +193,7 @@
               persistentVolumeReclaimPolicy: Retain
               storageClassName: local-storage
               local:
-                path: /mnt/volumes/pv1
+                path: /mnt/disk/ssd
               nodeAffinity:
                 required:
                   nodeSelectorTerms:
@@ -208,7 +208,7 @@
             kind: PersistentVolumeClaim
             apiVersion: v1
             metadata:
-              name: local-pvc
+              name: local-storage
             spec:
               accessModes:
               - ReadWriteOnce
@@ -236,7 +236,7 @@
               volumes:
                 - name: local-persistent-storage
                   persistentVolumeClaim:
-                    claimName: local-pvc
+                    claimName: local-storage
             ```
 1. Trouble Shooting
     1. <https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#access-control>
