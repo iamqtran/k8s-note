@@ -4,7 +4,7 @@
         1. **Each replica POD gets a persistent hostname with a unique index number (database-0, database-1, ...)**
         1. Each replica POD is created in order from hostname lowest number to hostname highest number
         1. When a StatefulSet is deleted, The replica Pods is also deleted in order from hostname highest number to hostname lowest number
-1. StaefulSet object should come along with headless service object
+1. StatefulSet object should come along with headless service object
     1. What is Headless Service
         - A headless service is a service without a service IP (.spec.clusterIP = NONE).
         - When do DNS lookup on headless service, result will be in multiple records POD IP address
