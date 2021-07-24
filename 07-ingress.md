@@ -15,19 +15,38 @@
 1. All setup will be using <https://github.com/kubernetes/ingress-nginx/blob/master/deploy/static/provider/baremetal/deploy.yaml>
 1. Create Ingress-rules
     ```yaml
-    apiVersion: networking.k8s.io/v1
+    apiVersion: extensions/v1beta1
     kind: Ingress
     metadata:
-      name: alochym-rules
+      name: grafana
+      namespace: default
     spec:
       rules:
-      - http:
+      - host: www.nginx-ingress.com
+        http:
           paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: nginx-service
-                port:
-                  number: 80
+          - backend:
+              serviceName: nginx-service
+              servicePort: 80
+    ```
+1. Create Nginx service in **default namespace**
+    ```yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nginx-service
+      name: nginx-service
+    spec:
+      ports:
+      - name: nginx-service
+        port: 80
+        protocol: TCP
+        targetPort: 80
+      selector:
+        app: nginx
+      type: ClusterIP
+    status:
+      loadBalancer: {}
     ```
