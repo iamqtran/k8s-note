@@ -71,7 +71,7 @@
               - sleep
               - "36000"
         ```
-    1. Check dns lookup on headless service - syntax **<headless_svc_name>.default.svc.cluster.local**
+    1. Check dns lookup on headless service - syntax **<headless_svc_name>.namespace.svc.cluster.local**
         ```bash
         hadn@k8s-master:~$ kubectl exec -it dnsutils -- sh
         / # nslookup nginx-headless-service
@@ -83,7 +83,7 @@
         Name:	nginx-headless-service.default.svc.cluster.local
         Address: 172.16.0.104
         ```
-    1. Check dns lookup on pod hostname - syntax **<pod_name>.<headless_svc_name>.default.svc.cluster.local**
+    1. Check dns lookup on pod hostname - syntax **<pod_name>.<headless_svc_name>.namespace.svc.cluster.local**
         ```yaml
         hadn@k8s-master:~$ kubectl exec -it dnsutils -- sh
         / # nslookup nginx-headless-1.nginx-headless-service.default.svc.cluster.local
