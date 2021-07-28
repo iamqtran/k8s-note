@@ -15,3 +15,4 @@
 ## Kubernetes Tutorial
 1. <https://redhat-scholars.github.io/kubernetes-tutorial/kubernetes-tutorial/resources.html>
 1. <https://github.com/redhat-scholars>
+1. <https://www.kubernetesbyexample.com/>
