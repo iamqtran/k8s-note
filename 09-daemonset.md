@@ -34,7 +34,7 @@
             - --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/pods/.+)($|/)
             - --collector.netclass.ignored-devices=^(veth.*)$
             name: node-exporter
-            image: prom/node-exporter
+            image: quay.io/prometheus/node-exporter:v1.2.0
             ports:
               - containerPort: 9100
                 protocol: TCP
