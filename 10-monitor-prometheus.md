@@ -1,48 +1,48 @@
 # Using Prometheus Operator
-1. . Install Prometheus Operator
-    1. (Create NameSpace monitor)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/0namespace-namespace.yaml]
-    1. (Create Service Account)[]https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-serviceAccount.yaml
-    1. (Create CRD Alertmanager Configs)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0alertmanagerConfigCustomResourceDefinition.yaml]
-    1. (Create CRD Alert Managers)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0alertmanagerCustomResourceDefinition.yaml]
-    1. (Create CRD Pod Monitors)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0podmonitorCustomResourceDefinition.yaml]
-    1. (Create CRD Probes)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0probeCustomResourceDefinition.yaml]
-    1. (Create CRD Prometheuses)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0prometheusCustomResourceDefinition.yaml]
-    1. (Create CRD Prometheus Rules)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0prometheusruleCustomResourceDefinition.yaml]
-    1. (Create CRD Service Monitors)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0servicemonitorCustomResourceDefinition.yaml]
-    1. (Create CRD Thanos Rulers)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0thanosrulerCustomResourceDefinition.yaml]
-    1. (Create Cluster Role prometheus-operator)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-clusterRole.yaml]
-    1. (Create Cluster Role Binding prometheus-operator)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-clusterRoleBinding.yaml]
-    1. (Create Deployment prometheus-operator)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-deployment.yaml]
-    1. (Create Service prometheus-operator)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-service.yaml]
+1. Install Prometheus Operator
+    1. [Create NameSpace monitor](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/0namespace-namespace.yaml)
+    1. [Create Service Account](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-serviceAccount.yaml)
+    1. [Create CRD Alertmanager Configs](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0alertmanagerConfigCustomResourceDefinition.yaml)
+    1. [Create CRD Alert Managers](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0alertmanagerCustomResourceDefinition.yaml)
+    1. [Create CRD Pod Monitors](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0podmonitorCustomResourceDefinition.yaml)
+    1. [Create CRD Probes](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0probeCustomResourceDefinition.yaml)
+    1. [Create CRD Prometheuses](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0prometheusCustomResourceDefinition.yaml)
+    1. [Create CRD Prometheus Rules](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0prometheusruleCustomResourceDefinition.yaml)
+    1. [Create CRD Service Monitors](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0servicemonitorCustomResourceDefinition.yaml)
+    1. [Create CRD Thanos Rulers](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-0thanosrulerCustomResourceDefinition.yaml)
+    1. [Create Cluster Role prometheus-operator](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-clusterRole.yaml)
+    1. [Create Cluster Role Binding prometheus-operator](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-clusterRoleBinding.yaml)
+    1. [Create Deployment prometheus-operator](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-deployment.yaml)
+    1. [Create Service prometheus-operator](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/setup/prometheus-operator-service.yaml)
 1. Install Prometheus
-    1. (Create Prometheus Service Account)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-serviceAccount.yaml]
-    1. (Create ClusterRole prometheus-k8s)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-clusterRole.yaml]
-    1. (Create ClusterRoleBinding prometheus-k8s)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-clusterRoleBinding.yaml]
-    1. (Create Role prometheus-k8s-config)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-roleConfig.yaml]
-    1. (Create RoleBinding prometheus-k8s-config)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-roleBindingConfig.yaml]
-    1. (Create Prometheus Role Specific NamSpace)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-roleSpecificNamespaces.yaml]
-    1. (Create Prometheus RoleBinding Specific NamSpace)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-roleBindingSpecificNamespaces.yaml]
-    1. (Create Prometheus Service)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-service.yaml]
-    1. (Create Prometheus Rules)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-rules.yaml]
-    1. (Create Prometheus Instance)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-prometheus.yaml]
-    1. (Create Prometheus Service Monitor)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-serviceMonitor.yaml]
-    1. (Create Prometheus Operator Service Monitor)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-operator-serviceMonitor.yaml]
+    1. [Create Prometheus Service Account](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-serviceAccount.yaml)
+    1. [Create ClusterRole prometheus-k8s](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-clusterRole.yaml)
+    1. [Create ClusterRoleBinding prometheus-k8s](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-clusterRoleBinding.yaml)
+    1. [Create Role prometheus-k8s-config](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-roleConfig.yaml)
+    1. [Create RoleBinding prometheus-k8s-config](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-roleBindingConfig.yaml)
+    1. [Create Prometheus Role Specific NamSpace](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-roleSpecificNamespaces.yaml)
+    1. [Create Prometheus RoleBinding Specific NamSpace](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-roleBindingSpecificNamespaces.yaml)
+    1. [Create Prometheus Service](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-service.yaml)
+    1. [Create Prometheus Rules](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-rules.yaml)
+    1. [Create Prometheus Instance](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-prometheus.yaml)
+    1. [Create Prometheus Service Monitor](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-serviceMonitor.yaml)
+    1. [Create Prometheus Operator Service Monitor](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-operator-serviceMonitor.yaml)
 1. Install Grafana
-    1. (Create Grafana Dashboard DataSource)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/grafana-dashboardDatasources.yaml]
-    1. (Create Grafana Dashboard Source)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/grafana-dashboardSources.yaml]
-    1. (Create Grafana Dashboard Definitions)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/grafana-dashboardDefinitions.yaml]
-    1. (Create Grafana Service Account)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/grafana-serviceAccount.yaml]
-    1. (Create Grafana Deployment)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/grafana-deployment.yaml]
-    1. (Create Grafana Service)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/grafana-service.yaml]
-    1. (Create Grafana Service Monitor)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/grafana-serviceMonitor.yaml]
+    1. [Create Grafana Dashboard DataSource](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/grafana-dashboardDatasources.yaml)
+    1. [Create Grafana Dashboard Source](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/grafana-dashboardSources.yaml)
+    1. [Create Grafana Dashboard Definitions](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/grafana-dashboardDefinitions.yaml)
+    1. [Create Grafana Service Account](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/grafana-serviceAccount.yaml)
+    1. [Create Grafana Deployment](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/grafana-deployment.yaml)
+    1. [Create Grafana Service](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/grafana-service.yaml)
+    1. [Create Grafana Service Monitor](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/grafana-serviceMonitor.yaml)
 1. Install Service Monitor for Node Exporter
-    1. (Create Node Exporter Service Account)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/node-exporter-serviceAccount.yaml]
-    1. (Create Node Exporter ClusterRole)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/node-exporter-clusterRole.yaml]
-    1. (Create Node Exporter ClusterRoleBinding)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/node-exporter-clusterRoleBinding.yaml]
-    1. (Create Node Exporter DaemonSet)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/node-exporter-daemonset.yaml]
-    1. (Create Node Exporter Service)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/node-exporter-service.yaml]
-    1. (Create Node Exporter Service Monitor)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/node-exporter-serviceMonitor.yaml]
+    1. [Create Node Exporter Service Account](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/node-exporter-serviceAccount.yaml)
+    1. [Create Node Exporter ClusterRole](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/node-exporter-clusterRole.yaml)
+    1. [Create Node Exporter ClusterRoleBinding](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/node-exporter-clusterRoleBinding.yaml)
+    1. [Create Node Exporter DaemonSet](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/node-exporter-daemonset.yaml)
+    1. [Create Node Exporter Service](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/node-exporter-service.yaml)
+    1. [Create Node Exporter Service Monitor](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/node-exporter-serviceMonitor.yaml)
 1. Install Service Monitor for CoreDNS
-    1. (Create CoreDNS Service Monitor)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-serviceMonitorCoreDNS.yaml]
+    1. [Create CoreDNS Service Monitor](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-serviceMonitorCoreDNS.yaml)
 1. Install Service Monitor for Kubelet
-    1. (Create Kubelet Service Monitor)[https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-serviceMonitorKubelet.yaml]
+    1. [Create Kubelet Service Monitor](https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.7/manifests/prometheus-serviceMonitorKubelet.yaml)
