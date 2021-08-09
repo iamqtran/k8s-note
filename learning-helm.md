@@ -43,6 +43,9 @@
     1. helm uninstall --namespace <kubernetes_namespace> mysql-server
 ## Templating and Dry Runs
 1. **helm template is a tool for rendering Helm charts into YAML**
+    1. **helm repo add** bitnami https://charts.bitnami.com/bitnami
+    1. **helm search repo** <package_name>(mysql)
+    1. **helm template** <package_name>(mysql)
 1. **helm template** have the cleaner output yaml files than **--dry-run**. And no need k8s cluster to run 
 1. **--dry-run is designed for debugging**
 1. Load the entire chart, including its dependencies.
