@@ -1,0 +1,25 @@
+# Monitor Coredns
+1. Check the coredns service is added to kube-system
+1. Create serviceMonitor for prometheus operator
+    ```yaml
+    apiVersion: monitoring.coreos.com/v1
+    kind: ServiceMonitor
+    metadata:
+      labels:
+        k8s-app: coredns
+      name: coredns
+      namespace: monitoring
+    spec:
+      endpoints:
+      - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+        interval: 15s
+        port: metrics
+      jobLabel: k8s-app
+      namespaceSelector:
+        matchNames:
+        - kube-system
+      selector:
+        matchLabels:
+          k8s-app: kube-dns
+    ```
+1. kubectl apply -f prometheus-serviceMonitorCoreDNS.yaml
