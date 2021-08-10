@@ -10,6 +10,8 @@
             --from-file=ca.crt \
             --from-file=server.crt \
             --from-file=server.key --dry-run=client -oyaml > etcd_secret.yaml
+        
+        kubectl apply -f etcd_secret.yaml
         ```
 1. Update Prometheus CRD using secrets
     ```yaml
