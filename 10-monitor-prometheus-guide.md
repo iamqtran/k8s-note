@@ -15,6 +15,6 @@
     ```bash
     1. kubectl exec -it -n monitoring prometheus-k8s-0 -c prometheus -- cat /var/run/secrets/kubernetes.io/serviceaccount/token
     2. TOKEN=step1
-    3. curl -v -s -k -H "Authorization: Bearer $Token" https://10.0.0.10:9100/metrics
+    3. curl -v -s -k -H "Authorization: Bearer $TOKEN" https://10.0.0.10:9100/metrics
     ```
 ## Grafana
