@@ -2,7 +2,7 @@
 1. Check the coredns service is added to kube-system
 1. Check "prometheus-k8s" has permission on kube-system namespace
     ```bash
-    kubectl auth can-i --as system:serviceaccount:monitoring:prometheus-k8s -n default get/list/watch pods/services/endpoints
+    kubectl auth can-i --as system:serviceaccount:monitoring:prometheus-k8s -n kube-system get/list/watch pods/services/endpoints
     ```
 1. Create serviceMonitor for prometheus operator
     ```yaml
