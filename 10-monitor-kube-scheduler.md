@@ -1,5 +1,37 @@
 # Monitor Kube Scheduler
+1. Check role prometheus-k8s on kube-system
+    ```bash
+    kubectl -n kube-system describe role prometheus-k8s
+    ```
+1. Check rolebinding prometheus-k8s on kube-system
+    ```bash
+    kubectl -n kube-system describe rolebindings prometheus-k8s
+    ```
+1. Check "prometheus-k8s" has permission on kube-system namespace
+    ```bash
+    kubectl auth can-i --as system:serviceaccount:monitoring:prometheus-k8s -n kube-system get/list/watch pods/services/endpoints
+    ```
 1. Create kube-scheduler service in kube-system namespace
+    ```yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: kube-scheduler
+      labels:
+        app.kubernetes.io/name: kube-scheduler
+      namespace: kube-system
+    spec:
+      clusterIP: None
+      ports:
+        - name: https-metrics
+          port: 10259
+          protocol: TCP
+          targetPort: 10259
+      selector:
+        component: kube-scheduler
+      type: ClusterIP
+    ```
+1. Create kube-scheduler serviceMonitor
     ```yaml
     apiVersion: v1
     kind: Service
@@ -24,7 +56,6 @@
     sed -i 's/127.0.0.1/0.0.0.0/g' /etc/kubernetes/manifests/kube-scheduler.yaml
     ```
 1. kube-scheduler file
-1. Create serviceMonitor for prometheus operator
     ```yaml
     apiVersion: v1
     kind: Pod
