@@ -1,4 +1,16 @@
 # Monitor kube-controller-manager
+1. Check role prometheus-k8s on kube-system
+    ```bash
+    kubectl -n kube-system describe role prometheus-k8s
+    ```
+1. Check rolebinding prometheus-k8s on kube-system
+    ```bash
+    kubectl -n kube-system describe rolebindings prometheus-k8s
+    ```
+1. Check "prometheus-k8s" has permission on kube-system namespace
+    ```bash
+    kubectl auth can-i --as system:serviceaccount:monitoring:prometheus-k8s -n kube-system get/list/watch pods/services/endpoints
+    ```
 1. Create kube-controller-manager service in kube-system namespace
     ```yaml
     apiVersion: v1
