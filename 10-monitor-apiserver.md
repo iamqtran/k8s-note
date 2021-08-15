@@ -2,6 +2,10 @@
 1. Check service kubernetes in namespace **default**
 1. Note:
     1. Monitor api control plane which is using addition **tlsConfig** section
+1. Check "prometheus-k8s" has permission on default namespace
+    ```bash
+    kubectl auth can-i --as system:serviceaccount:monitoring:prometheus-k8s -n default get/list/watch pods/services/endpoints
+    ```
 1. Create serviceMonitor for prometheus operator
     ```yaml
     apiVersion: monitoring.coreos.com/v1

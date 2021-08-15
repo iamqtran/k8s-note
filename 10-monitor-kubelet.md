@@ -1,4 +1,23 @@
 # Monitor Kubelet
+1. Check the kubelet service is added to kube-system
+1. Kubelet monitor metrics
+    1. port 10250
+    1. /metrics/cadvisor
+    1. /metrics/probes
+    1. /metrics/resource
+    1. <https://kubernetes.io/docs/concepts/cluster-administration/system-metrics/>
+1. Check role prometheus-k8s on kube-system
+    ```bash
+    kubectl -n kube-system describe role prometheus-k8s
+    ```
+1. Check rolebinding prometheus-k8s on kube-system
+    ```bash
+    kubectl -n kube-system describe rolebindings prometheus-k8s
+    ```
+1. Check "prometheus-k8s" has permission on kube-system namespace
+    ```bash
+    kubectl auth can-i --as system:serviceaccount:monitoring:prometheus-k8s -n kube-system get/list/watch pods/services/endpoints
+    ```
 1. Create serviceMonitor for prometheus operator
     ```yaml
     apiVersion: monitoring.coreos.com/v1
