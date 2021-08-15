@@ -1,4 +1,36 @@
 # Montior kube-proxy
+1. Create kube-proxy service in kube-system namespace
+    ```yaml
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: kube-proxy
+      labels:
+        app: kube-proxy
+      namespace: kube-system
+    spec:
+      clusterIP: None
+      ports:
+        - name: http-metrics
+          port: 10249
+          protocol: TCP
+          targetPort: 10249
+      selector:
+        k8s-app: kube-proxy
+      type: ClusterIP
+    ```
+1. Check role prometheus-k8s on kube-system
+    ```bash
+    kubectl -n kube-system describe role prometheus-k8s
+    ```
+1. Check rolebinding prometheus-k8s on kube-system
+    ```bash
+    kubectl -n kube-system describe rolebindings prometheus-k8s
+    ```
+1. Check "prometheus-k8s" has permission on kube-system namespace
+    ```bash
+    kubectl auth can-i --as system:serviceaccount:monitoring:prometheus-k8s -n kube-system get/list/watch pods/services/endpoints
+    ```
 1. Change kube-proxy configmap metricsBindAddress: "" => metricsBindAddress: "0.0.0.0:10249" in kube-system namespace.
     ```yaml
     apiVersion: v1
@@ -66,26 +98,6 @@
       name: kube-proxy
       namespace: kube-system
     ```
-1. Create kube-proxy service in kube-system namespace
-    ```yaml
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: kube-proxy
-      labels:
-        app: kube-proxy
-      namespace: kube-system
-    spec:
-      clusterIP: None
-      ports:
-        - name: http-metrics
-          port: 10249
-          protocol: TCP
-          targetPort: 10249
-      selector:
-        k8s-app: kube-proxy
-      type: ClusterIP
-    ```
 1. Delete all kube-proxy pod in kube-system namespace to reload configmap
     ```bash
     kubectl -n kube-system delete po kube-proxy-f9k2n
@@ -110,4 +122,3 @@
       endpoints:
       - port: http-metrics
     ```
-
