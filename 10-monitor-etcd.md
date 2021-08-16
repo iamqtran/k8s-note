@@ -102,3 +102,6 @@
         matchNames:
           - kube-system
     ```
+1. Reference link
+    1. <https://jpweber.io/blog/monitoring-external-etcd-cluster-with-prometheus-operator/>
+    1. `curl --cacert ca.crt --cert healthcheck-client.crt --key healthcheck-client.key https://127.0.0.1:2379/metrics -k`
