@@ -10,9 +10,9 @@
     apiVersion: v1
     kind: Service
     metadata:
-      name: kube-etcd
+      name: kube-etcd-no-https
       labels:
-        app: kube-etcd
+        app: kube-etcd-no-https
       namespace: kube-system
     spec:
       clusterIP: None
@@ -28,24 +28,24 @@
     ```
 1. Create serviceMonitor for prometheus operator config
     ```yaml
-    apiVersion: monitoring.coreos.com/v1
-    kind: ServiceMonitor
-    metadata:
-      name: kube-etcd
-      namespace: monitoring
-      labels:
-        app: kube-etcd
-    spec:
-      endpoints:
-      - interval: 30s
-        port: http-metrics
-      jobLabel: app.kubernetes.io/name
-      selector:
-        matchLabels:
-          app: kube-etcd
-      namespaceSelector:
-        matchNames:
-          - kube-system
+    apiVersion: monitoring.coreos.com/v1                      
+    kind: ServiceMonitor                                      
+    metadata:                                                 
+       name: kube-etcd-no-http                              
+       namespace: monitoring
+       labels:
+         app: kube-etcd   
+    spec:                                                     
+       endpoints:                                              
+       - interval: 30s                                         
+         port: http-metrics                                    
+       jobLabel: app.kubernetes.io/name                        
+       selector:                                               
+         matchLabels:                                          
+           app: kube-etcd-no-https
+       namespaceSelector:                                      
+         matchNames:                                           
+         - kube-system 
     ```
 1. Reference link
     1. <https://jpweber.io/blog/monitoring-external-etcd-cluster-with-prometheus-operator/>
