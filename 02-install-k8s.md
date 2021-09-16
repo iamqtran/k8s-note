@@ -21,7 +21,8 @@
       "exec-opts": ["native.cgroupdriver=systemd"],
       "log-driver": "json-file",
       "log-opts": {
-        "max-size": "100m"
+        "max-size": "20m",
+        "max-file": "5"
       },
       "storage-driver": "overlay2"
     }
@@ -29,8 +30,7 @@
 1.  Add a new repo for kubernetes
     ```bash
     sudo vi /etc/apt/sources.list.d/kubernetes.list
-
-    deb http://apt.kubernetes.io/ kubernetes-xenial main
+	deb http://apt.kubernetes.io/ kubernetes-xenial main
     ```
 1.  Add a GPG key for the packages
     ```bash
@@ -70,7 +70,7 @@
 
     apiVersion: kubeadm.k8s.io/v1beta2
     kind: ClusterConfiguration
-    kubernetesVersion: 1.19.12
+    kubernetesVersion: 1.19.0
     controlPlaneEndpoint: "k8s-master:6443"
     networking:
       podSubnet: 172.16.0.0/16

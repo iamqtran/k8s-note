@@ -15,6 +15,7 @@
         ```
     -   sudo chmod 440 /etc/sudoers.d/student
 1.  Disable swap
+    -   sudo swapoff -a
     -   sudo swapoff -v /swap.img
     -   sudo rm /swap.img
     -   sudo vi /etc/fstab
